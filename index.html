@@ -5,9 +5,18 @@
   <title>Mike Cao | Professional Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Strict CSP (no inline styles / JS) -->
-  <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; object-src 'none'; frame-ancestors 'self'; base-uri 'self';">
+<meta http-equiv="Content-Security-Policy"
+  content="
+    default-src 'self';
+    style-src 'self';
+    script-src 'self';
+    img-src 'self' data:;
+    object-src 'none';
+    base-uri 'self';
+    frame-ancestors 'self';
+    form-action 'self';
+    upgrade-insecure-requests;
+  ">
 
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="assets/css/main.css">
