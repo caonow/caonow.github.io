@@ -927,3 +927,20 @@
   .resume-pill, .resume-badge { background: #fff; border-color: #ccc; color: #000; }
   .resume-muted, .resume-profile-meta, .resume-footer { color: #333; }
 }
+.resume-nav { margin: 0 0 10px; }
+.resume-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #020617;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px;
+}
+.resume-back:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
