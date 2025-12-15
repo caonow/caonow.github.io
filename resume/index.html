@@ -1,43 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Your Name | Interactive Resume</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume & Skill Explorer</title>
 
-  <!-- Reuse your existing favicon and main stylesheet -->
   <link rel="icon" href="../favicon.ico">
   <link rel="stylesheet" href="../assets/css/main.css">
+
+  <!-- JS moved to external file (CSP-friendly) -->
+  <script src="../assets/js/resume.js" defer></script>
 </head>
-<body>
-  <div class="page">
-    <section class="panel">
-      <div class="panel-header">
-        <div class="panel-title">Interactive Resume</div>
-        <div class="panel-subtitle">This area is currently under construction.</div>
-      </div>
 
-      <p style="margin-top:8px;">
-        A full interactive resume will be hosted here, including:
+<body class="resume-page">
+  <div class="resume-wrap">
+    <header class="resume-header">
+      <h1 class="resume-h1">Mike Cao — Resume & Skill Explorer</h1>
+      <p class="resume-muted">
+        Filter by skill or role. Click chips to pivot. Use Print to export PDF.
       </p>
-      <ul>
-        <li>Expanded experience timeline and role details</li>
-        <li>Skills and certifications mapped to domains</li>
-        <li>Project walkthroughs with deeper technical context</li>
-        <li>Evidence-ready summaries for audits and assessments</li>
-      </ul>
+    </header>
 
-      <p>
-        For now, you can use the main dashboard to review a snapshot of my background,
-        projects, and current focus areas.
-      </p>
+    <section id="profile" class="resume-card" aria-label="Profile"></section>
 
-      <div class="hero-actions">
-        <a href="../index.html" class="btn-ghost">
-          ← Back to Dashboard
-        </a>
-      </div>
+    <section class="resume-toolbar" aria-label="Filters and actions">
+      <input id="q" class="resume-input" placeholder="Search skills, roles, tech" aria-label="Search" />
+      <select id="mode" class="resume-select" aria-label="Mode">
+        <option value="skills">Skills → Roles</option>
+        <option value="roles">Roles → Skills</option>
+      </select>
+      <button id="printBtn" class="resume-btn resume-btn-primary" type="button">
+        Print / Save PDF
+      </button>
     </section>
+
+    <main class="resume-layout">
+      <section class="resume-card">
+        <div id="leftTitle" class="resume-muted resume-section-title">Skills</div>
+        <div class="resume-row" id="chips" aria-label="Active filters"></div>
+        <div class="resume-list" id="leftList" aria-label="Left list"></div>
+      </section>
+
+      <section class="resume-card">
+        <div id="rightTitle" class="resume-muted resume-section-title">Matching roles</div>
+        <div id="rightList" class="resume-list" aria-label="Right list"></div>
+        <section id="detail" class="resume-card resume-detail" style="display:none" aria-label="Details"></section>
+      </section>
+    </main>
+
+    <footer class="resume-footer">
+      <div id="stats"></div>
+    </footer>
   </div>
 </body>
 </html>

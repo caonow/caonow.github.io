@@ -757,3 +757,173 @@
         transition: none !important;
       }
     }
+    /* =========================
+   RESUME PAGE (scoped)
+   ========================= */
+.resume-page {
+  margin: 0;
+  background:
+    radial-gradient(900px 600px at 15% 10%, rgba(56, 189, 248, .12), transparent 60%),
+    radial-gradient(900px 600px at 85% 0%, rgba(34, 197, 94, .10), transparent 60%),
+    #020617;
+  color: var(--text);
+}
+
+.resume-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .10;
+  background:
+    linear-gradient(transparent 31px, rgba(255,255,255,.03) 32px),
+    linear-gradient(90deg, transparent 31px, rgba(255,255,255,.03) 32px);
+  background-size: 32px 32px;
+}
+
+.resume-wrap {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px;
+  position: relative;
+}
+
+.resume-header { margin-bottom: 12px; }
+.resume-h1 {
+  margin: 0 0 6px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.resume-muted { color: var(--muted); }
+
+.resume-card {
+  background: radial-gradient(circle at top left, var(--panel-soft), var(--panel));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
+}
+
+.resume-toolbar {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  margin: 12px 0 18px;
+}
+
+.resume-input,
+.resume-select,
+.resume-btn {
+  background: #0d131e;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  transition: .15s;
+}
+
+.resume-input:focus,
+.resume-select:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.resume-btn { cursor: pointer; }
+.resume-btn-primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #020617;
+  font-weight: 700;
+  border: 1px solid #1c8fa1;
+}
+
+.resume-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 16px;
+}
+
+.resume-section-title { margin-bottom: 6px; }
+
+.resume-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.resume-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #020617;
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  transition: .15s;
+}
+.resume-chip:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+.resume-list { display: grid; gap: 10px; margin-top: 10px; }
+
+.resume-item {
+  width: 100%;
+  text-align: left;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #0d1522;
+  cursor: pointer;
+  transition: .15s;
+}
+.resume-item:hover { border-color: var(--accent-2); transform: translateY(-1px); }
+
+.resume-item-title { font-weight: 700; color: var(--accent-2); }
+.resume-item-sub { color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+
+.resume-pill {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #020617;
+  border: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text);
+}
+
+.resume-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #020617;
+  border: 1px solid var(--border);
+  font-size: 12px;
+  margin: 0 6px 6px 0;
+}
+
+.resume-contact { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0; }
+.resume-contact a { color: var(--accent); text-decoration: none; }
+.resume-contact a:hover { text-decoration: underline; }
+
+.resume-profile-head { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; margin-bottom: 6px; }
+.resume-profile-name { font-size: 20px; font-weight: 800; }
+.resume-profile-meta { color: var(--muted); }
+
+.resume-detail { margin-top: 10px; }
+
+.resume-footer { margin-top: 12px; font-size: 12px; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .resume-layout { grid-template-columns: 1fr; }
+  .resume-toolbar { grid-template-columns: 1fr; }
+}
+
+/* Print */
+@media print {
+  .resume-page { background: #fff; color: #000; }
+  .resume-page::before { display: none; }
+  .resume-card { background: #fff; border-color: #ccc; box-shadow: none; }
+  .resume-toolbar, .resume-chip { display: none !important; }
+  .resume-item { background: #fff; border-color: #ccc; }
+  .resume-item-title { color: #000; }
+  .resume-pill, .resume-badge { background: #fff; border-color: #ccc; color: #000; }
+  .resume-muted, .resume-profile-meta, .resume-footer { color: #333; }
+}
